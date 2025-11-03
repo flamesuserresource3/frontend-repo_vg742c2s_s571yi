@@ -76,7 +76,13 @@ export default function App() {
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
 
-      <main className="mx-auto max-w-6xl w-full flex-1 grid grid-rows-[1fr_auto] md:grid-cols-2 md:grid-rows-1 gap-0 md:gap-6 px-0 md:px-6 py-0 md:py-6">
+      <main
+        className={
+          "mx-auto max-w-6xl w-full flex-1 grid gap-0 md:gap-6 px-0 md:px-6 py-0 md:py-6 " +
+          "grid-rows-[1fr_auto] md:grid-cols-2 md:grid-rows-1 " +
+          (started ? "overflow-hidden" : "")
+        }
+      >
         {/* Sidebar / Intro on desktop */}
         <section className="hidden md:flex flex-col gap-4 p-6 bg-gradient-to-b from-indigo-50 to-white rounded-2xl border">
           <div>
@@ -90,7 +96,7 @@ export default function App() {
         </section>
 
         {/* Chat area */}
-        <section className="flex flex-col border md:border-0 md:bg-transparent rounded-none md:rounded-2xl">
+        <section className="flex flex-col min-h-0 border md:border-0 md:bg-transparent rounded-none md:rounded-2xl">
           {/* Mobile intro */}
           {!started && (
             <div className="md:hidden p-4 border-b">
